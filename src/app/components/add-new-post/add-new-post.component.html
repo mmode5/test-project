@@ -1,0 +1,30 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>New post</h1>
+  <div mat-dialog-content class="fields">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+      <mat-error *ngIf="postForm.get('title')?.hasError('required')"
+        >Title is required</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Post</mat-label>
+      <textarea
+        matInput
+        class="custom-textarea"
+        formControlName="post"
+      ></textarea>
+      <mat-error *ngIf="postForm.get('post')?.hasError('required')"
+        >Post is required</mat-error
+      >
+      <mat-error *ngIf="postForm.get('post')?.hasError('minLength')"
+        >Post must be at least 20 characters</mat-error
+      >
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [disabled]="!postForm.valid">Save new post</button>
+  </div>
+</form>

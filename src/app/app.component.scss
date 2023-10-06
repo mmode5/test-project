@@ -1,0 +1,19 @@
+.post {
+  border: 1px solid black;
+  margin-bottom: 10px;
+}
+
+input {
+  height: 100px;
+  width: 100%;
+}
+
+.example-container {
+  height: 200px;
+  margin: 10px;
+  border: 1px solid #555;
+  mat-drawer {
+    background-color: red;
+    width: 30%;
+  }
+}

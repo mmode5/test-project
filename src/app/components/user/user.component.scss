@@ -1,0 +1,22 @@
+.container {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 13rem;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .active-button {
+    background-color: black !important;
+    color: white;
+  }
+}

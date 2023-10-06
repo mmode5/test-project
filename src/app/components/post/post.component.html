@@ -1,0 +1,55 @@
+<div class="post">
+  <div *ngIf="selectedUserId">
+    <button mat-raised-button (click)="openDialog()">
+      <mat-icon> add</mat-icon>Add new post
+    </button>
+  </div>
+  <mat-card class="posts" *ngFor="let post of posts$ | async">
+    <mat-card-content>
+      <div>
+        <h1>{{ post.title }}</h1>
+        <p *ngIf="selectedPostId !== post.id">{{ post.body }}</p>
+      </div>
+      <input
+        type="text"
+        *ngIf="selectedPostId === post.id"
+        [value]="post.body"
+        #input
+      />
+
+      <div class="buttons">
+        <button
+          mat-stroked-button
+          (click)="enterEdit(post.id)"
+          *ngIf="selectedPostId !== post.id"
+          [disabled]="selectedPostId"
+        >
+          <mat-icon>edit</mat-icon>
+          edit
+        </button>
+        <button
+          mat-stroked-button
+          (click)="edit(post)"
+          *ngIf="selectedPostId === post.id"
+        >
+          save changes
+        </button>
+        <button
+          mat-stroked-button
+          (click)="cancelEdit()"
+          *ngIf="selectedPostId === post.id"
+        >
+          cancel
+        </button>
+        <button
+          mat-stroked-button
+          (click)="deletePost(post.id)"
+          [disabled]="selectedPostId"
+        >
+          <mat-icon>delete</mat-icon>
+          delete
+        </button>
+      </div>
+    </mat-card-content></mat-card
+  >
+</div>

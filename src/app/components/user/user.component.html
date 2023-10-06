@@ -1,0 +1,9 @@
+<div class="container">
+  <button
+    *ngFor="let user of users"
+    [routerLink]="['/users', user.id, 'posts']"
+    routerLinkActive="active-button"
+  >
+    {{ user.name }}
+  </button>
+</div>
